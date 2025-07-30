@@ -49,23 +49,23 @@ def button_click():
     x, y = pygame.mouse.get_pos()
     if button_rect_left.collidepoint(x, y):
         tic_tac_toe.run()
-        # random_color = (
-        #     random.randint(0, 255),
-        #     random.randint(0, 255),
-        #     random.randint(0, 255),
-        # )
-    # if button_rect_middle.collidepoint(x, y):
-        # random_color = (
-        #     random.randint(0, 255),
-        #     random.randint(0, 255),
-        #     random.randint(0, 255),
-        # )
-    # if button_rect_right.collidepoint(x, y):
-        # random_color = (
-        #     random.randint(0, 255),
-        #     random.randint(0, 255),
-        #     random.randint(0, 255),
-        # )
+        random_color = (
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255),
+        )
+    if button_rect_middle.collidepoint(x, y):
+        random_color = (
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255),
+        )
+    if button_rect_right.collidepoint(x, y):
+        random_color = (
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255),
+        )
         return
     
 
