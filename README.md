@@ -1,7 +1,7 @@
 # capstone_game_library
 
 ### TIC_TAC_TOE ADJUSTMENTS
-[x] added these lines of code into the tic_tac_toe file:
+- [x] Translate the tic_tac_toe visuals to the center of the screen:\
     ```
          # copy everything from the scree(above) onto a temporary surface
         temp_surf = screen.copy()
@@ -13,3 +13,7 @@
         screen.blit(screen, (-350, 0))
     ```
     I put it inside the game loop!
+
+- [x] Adjust the clicking coordinates:
+    - The OG tic tac toe code converts the coordinates of the click into a single digit number that coresponds to a position on an array/board.
+    - I adjusted this by manually looking for the x pos of the mouse to be in a certain range.
