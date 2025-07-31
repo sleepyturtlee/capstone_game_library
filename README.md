@@ -1,7 +1,8 @@
-# capstone_game_library
+# Game Library !!
+Features Tic-Tac-Toe, Hangman, and Wordle!!
 
 ### TIC_TAC_TOE ADJUSTMENTS
-- [x] Translate the tic_tac_toe visuals to the center of the screen:\
+- [x] Translate the tic_tac_toe visuals to the center of the screen:  
     ```
          # copy everything from the scree(above) onto a temporary surface
         temp_surf = screen.copy()

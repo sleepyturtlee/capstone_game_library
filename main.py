@@ -4,7 +4,10 @@ import sys
 import random
 
 # import game files
+import hangman.hangman
 from tic_tac_toe import tic_tac_toe
+import hangman
+from wordle import wordle
 
 pygame.init()
 width = 1100
@@ -36,11 +39,11 @@ def draw_buttons():
     text_rect = button_text.get_rect(center=button_rect_left.center)
     screen.blit(button_text, text_rect)
     pygame.draw.rect(screen, (250, 0, 0), button_rect_middle)
-    button_text = button_font.render("middle", True, white)
+    button_text = button_font.render("Hangman", True, white)
     text_rect = button_text.get_rect(center=button_rect_middle.center)
     screen.blit(button_text, text_rect)
     pygame.draw.rect(screen, (250, 0, 0), button_rect_right)
-    button_text = button_font.render("right", True, white)
+    button_text = button_font.render("Wordle", True, white)
     text_rect = button_text.get_rect(center=button_rect_right.center)
     screen.blit(button_text, text_rect)
 
@@ -55,12 +58,14 @@ def button_click():
             random.randint(0, 255),
         )
     if button_rect_middle.collidepoint(x, y):
+        hangman.hangman.run()
         random_color = (
             random.randint(0, 255),
             random.randint(0, 255),
             random.randint(0, 255),
         )
     if button_rect_right.collidepoint(x, y):
+        wordle.run()
         random_color = (
             random.randint(0, 255),
             random.randint(0, 255),
