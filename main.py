@@ -38,7 +38,7 @@ def draw_title():
 def draw_buttons():
     global button_font, button_rect_left, button_rect_middle, button_rect_right
     pygame.draw.rect(screen, (250, 0, 0), button_rect_left)
-    button_text = button_font.render("Tic toe", True, white)
+    button_text = button_font.render("Tic Tac toe", True, white)
     text_rect = button_text.get_rect(center=button_rect_left.center)
     screen.blit(button_text, text_rect)
     pygame.draw.rect(screen, (250, 0, 0), button_rect_middle)
