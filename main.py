@@ -2,6 +2,7 @@ import pygame
 from pygame.locals import *
 import sys
 import random
+import math
 
 # import game files
 import hangman.hangman
@@ -24,6 +25,8 @@ button_font = pygame.font.Font(None, 32)
 button_rect_left = pygame.Rect(60, 300, 120, 40)
 button_rect_middle = pygame.Rect(495, 300, 120, 40)
 button_rect_right = pygame.Rect(925, 300, 120, 40)
+
+clock = pygame.time.Clock()
 
 def draw_title():
     global title_font, random_color
@@ -74,11 +77,58 @@ def button_click():
         return
     
 
+class Dot:
+    def __init__(self):
+        self.x = random.uniform(0, width)
+        self.y = random.uniform(0, height)
+        self.radius = random.randint(2, 6)
+        self.speed = random.uniform(0.1, 0.5)
+        self.color = (
+            random.randint(0, 255),
+            random.randint(0, 255),
+            random.randint(0, 255),
+        )
+
+        angle = random.uniform(0, 2 * math.pi)
+        self.dx = math.cos(angle) * self.speed
+        self.dy = math.sin(angle) * self.speed
+
+    def update(self):
+        self.x += self.dx
+        self.y += self.dy
+
+        if self.x < 0:
+            self.x = width
+        elif self.x > width:
+            self.x = 0
+        if self.y < 0:
+            self.y = height
+        elif self.y > height:
+            self.y = 0
+
+    def draw(self, surface):
+        pygame.draw.circle(surface, self.color, (int(self.x), int(self.y)), self.radius)
+
+
+dots = []
+dots_num = 100
+for i in range(dots_num):
+    dots.append(Dot())
+
+
+
 running = True
 while running:
     screen.fill(white)
+
+    for i in range(len(dots)):
+        dots[i].update()
+        dots[i].draw(screen)
+
+    clock.tick(60)
     draw_title()
     draw_buttons()
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
